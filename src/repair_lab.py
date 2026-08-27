@@ -18,6 +18,8 @@ class ToolPage:
     rows: list[dict[str, Any]]
     next_cursor: str | None
     truncated: bool
+    snapshot_id: str | None = None
+    total_row_count: int | None = None
 
 
 class AccountPageLoader(Protocol):
@@ -44,6 +46,10 @@ class PaginationError(RuntimeError):
         self.pages = list(pages)
 
 
+class CampaignPlanError(RuntimeError):
+    """A collected account set could not produce a publishable campaign."""
+
+
 @dataclass(frozen=True)
 class CollectedRow:
     """A row and its stable position in the accepted paginated result."""
@@ -57,6 +63,7 @@ class TargetAccountTool:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(account) for account in accounts]
+        self._snapshot_id = "target-account-tool-snapshot"
 
     def load_page(
         self,
@@ -74,6 +81,8 @@ class TargetAccountTool:
             rows=rows,
             next_cursor=next_cursor,
             truncated=next_cursor is not None,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
         )
 
 
@@ -106,6 +115,8 @@ def collect_account_rows(
     request_counts: dict[str | None, int] = {}
     responses_by_cursor: dict[str | None, tuple[str, str | None]] = {}
     last_response: tuple[str, str | None, str | None] | None = None
+    snapshot_id: str | None = None
+    total_row_count: int | None = None
 
     for request_number in range(page_budget):
         request_counts[cursor] = request_counts.get(cursor, 0) + 1
@@ -120,6 +131,40 @@ def collect_account_rows(
         page = tool.load_page(cursor=input_cursor, page_size=page_size)
         fingerprint = _page_fingerprint(page.rows)
         previous_for_cursor = responses_by_cursor.get(input_cursor)
+
+        if not page.snapshot_id:
+            raise PaginationError(
+                "missing_snapshot",
+                "source did not provide a snapshot identifier",
+                pages=evidence,
+            )
+        if (
+            not isinstance(page.total_row_count, int)
+            or isinstance(page.total_row_count, bool)
+            or page.total_row_count < 0
+        ):
+            raise PaginationError(
+                "invalid_total_row_count",
+                "source did not provide a valid non-negative total row count",
+                pages=evidence,
+            )
+        if snapshot_id is None:
+            snapshot_id = page.snapshot_id
+            total_row_count = page.total_row_count
+        elif page.snapshot_id != snapshot_id:
+            raise PaginationError(
+                "snapshot_changed",
+                f"source snapshot changed from {snapshot_id!r} "
+                f"to {page.snapshot_id!r}",
+                pages=evidence,
+            )
+        elif page.total_row_count != total_row_count:
+            raise PaginationError(
+                "total_row_count_changed",
+                f"source row total changed from {total_row_count} "
+                f"to {page.total_row_count}",
+                pages=evidence,
+            )
 
         if page.truncated and page.next_cursor is None:
             raise PaginationError(
@@ -156,6 +201,18 @@ def collect_account_rows(
             # only on the replay response (for example None -> "0" -> "25").
             replayed = True
 
+        next_cursor = page.next_cursor
+        if (
+            page.truncated
+            and next_cursor in request_counts
+            and next_cursor != input_cursor
+        ):
+            raise PaginationError(
+                "cursor_cycle",
+                f"next cursor {next_cursor!r} returns to an earlier page",
+                pages=evidence,
+            )
+
         page_number = logical_page_number if not replayed else None
         start_position = (
             logical_page_number * page_size if not replayed else None
@@ -165,6 +222,14 @@ def collect_account_rows(
                 source_row_id = str(logical_page_number * page_size + page_index)
                 collected.append(CollectedRow(source_row_id, dict(row)))
             logical_page_number += 1
+
+        if total_row_count is not None and len(collected) > total_row_count:
+            raise PaginationError(
+                "row_count_exceeded",
+                f"collected {len(collected)} rows but source declared "
+                f"{total_row_count}",
+                pages=evidence,
+            )
 
         evidence.append(
             {
@@ -176,21 +241,24 @@ def collect_account_rows(
                 "replayed": replayed,
                 "page_number": page_number,
                 "start_position": start_position,
+                "snapshot_id": page.snapshot_id,
+                "total_row_count": page.total_row_count,
+                "accepted_row_count": len(collected),
             }
         )
         responses_by_cursor[input_cursor] = (fingerprint, page.next_cursor)
         last_response = (fingerprint, page.next_cursor, input_cursor)
 
         if not page.truncated:
+            if len(collected) != total_row_count:
+                raise PaginationError(
+                    "incomplete_source",
+                    f"source terminated after {len(collected)} of "
+                    f"{total_row_count} declared rows",
+                    pages=evidence,
+                )
             return collected, evidence
 
-        next_cursor = page.next_cursor
-        if next_cursor in request_counts and next_cursor != input_cursor:
-            raise PaginationError(
-                "cursor_cycle",
-                f"next cursor {next_cursor!r} returns to an earlier page",
-                pages=evidence,
-            )
         cursor = next_cursor
 
     raise PaginationError(
@@ -254,12 +322,6 @@ def _make_deliverables(
     deliverables: list[dict[str, str]] = []
     for collected_row in accounts:
         account = collected_row.value
-        effective_brand_kit = str(
-            account.get("saved_brand_kit_id", brand_kit_id)
-        )
-        effective_template = str(
-            account.get("saved_template_id", template_id)
-        )
         for asset_type in REQUIRED_ASSET_TYPES:
             deliverables.append(
                 {
@@ -267,11 +329,58 @@ def _make_deliverables(
                     "company_id": str(account["company_id"]),
                     "company_name": str(account["company_name"]),
                     "asset_type": asset_type,
-                    "brand_kit_id": effective_brand_kit,
-                    "template_id": effective_template,
+                    "brand_kit_id": brand_kit_id,
+                    "template_id": template_id,
                 }
             )
     return deliverables
+
+
+def _validate_generated_campaign(
+    rows: list[CollectedRow],
+    deliverables: list[dict[str, str]],
+    *,
+    brand_kit_id: str,
+    template_id: str,
+) -> dict[str, Any]:
+    """Prove generated output exactly covers the canonical account set."""
+    expected = {
+        (
+            row.source_row_id,
+            str(row.value["company_id"]),
+            asset_type,
+            brand_kit_id,
+            template_id,
+        )
+        for row in rows
+        for asset_type in REQUIRED_ASSET_TYPES
+    }
+    observed = [
+        (
+            str(item.get("source_row_id")),
+            str(item.get("company_id")),
+            str(item.get("asset_type")),
+            str(item.get("brand_kit_id")),
+            str(item.get("template_id")),
+        )
+        for item in deliverables
+    ]
+    observed_set = set(observed)
+    if len(observed) != len(observed_set):
+        raise CampaignPlanError("generated campaign contains duplicate deliverables")
+    missing = expected - observed_set
+    unexpected = observed_set - expected
+    if missing or unexpected:
+        raise CampaignPlanError(
+            "generated campaign does not exactly cover the canonical accounts: "
+            f"{len(missing)} missing and {len(unexpected)} unexpected"
+        )
+    return {
+        "canonical_company_count": len(rows),
+        "expected_deliverable_count": len(expected),
+        "observed_deliverable_count": len(observed),
+        "validated": True,
+    }
 
 
 def build_campaign_plan(
@@ -288,16 +397,30 @@ def build_campaign_plan(
         page_budget=page_budget,
     )
     rows, skipped_rows = resolve_account_identity(collected_rows)
+    deliverables = _make_deliverables(
+        rows,
+        brand_kit_id=brand_kit_id,
+        template_id=template_id,
+    )
+    completion_evidence = _validate_generated_campaign(
+        rows,
+        deliverables,
+        brand_kit_id=brand_kit_id,
+        template_id=template_id,
+    )
+    source_evidence = {
+        "snapshot_id": pagination[0]["snapshot_id"],
+        "expected_row_count": pagination[0]["total_row_count"],
+        "observed_row_count": len(collected_rows),
+    }
 
     return {
         "source_row_ids": [row.source_row_id for row in rows],
-        "deliverables": _make_deliverables(
-            rows,
-            brand_kit_id=brand_kit_id,
-            template_id=template_id,
-        ),
+        "deliverables": deliverables,
         "skipped_rows": skipped_rows,
         "pagination": pagination,
+        "source_evidence": source_evidence,
+        "completion_evidence": completion_evidence,
         "complete": True,
     }
 

@@ -26,6 +26,7 @@ class ReplayingLoader:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(a) for a in accounts]
+        self._snapshot_id = "replaying-loader-snapshot"
         self._calls = 0
         self._served: set[str] = set()
 
@@ -40,10 +41,22 @@ class ReplayingLoader:
         token = str(start)
         if token not in self._served:
             self._served.add(token)
-            return ToolPage(rows=rows, next_cursor=token, truncated=True)
+            return ToolPage(
+                rows=rows,
+                next_cursor=token,
+                truncated=True,
+                snapshot_id=self._snapshot_id,
+                total_row_count=len(self._accounts),
+            )
         nxt = start + len(rows)
         cur = str(nxt) if nxt < len(self._accounts) else None
-        return ToolPage(rows=rows, next_cursor=cur, truncated=cur is not None)
+        return ToolPage(
+            rows=rows,
+            next_cursor=cur,
+            truncated=cur is not None,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
+        )
 
 
 class StallingLoader:
@@ -57,6 +70,7 @@ class StallingLoader:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(a) for a in accounts]
+        self._snapshot_id = "stalling-loader-snapshot"
         self._calls = 0
 
     def load_page(
@@ -69,10 +83,21 @@ class StallingLoader:
         rows = self._accounts[start : start + page_size]
         nxt = start + len(rows)
         if nxt >= self.STALL_AT:
-            return ToolPage(rows=rows, next_cursor=str(self.STALL_AT),
-                            truncated=True)
+            return ToolPage(
+                rows=rows,
+                next_cursor=str(self.STALL_AT),
+                truncated=True,
+                snapshot_id=self._snapshot_id,
+                total_row_count=len(self._accounts),
+            )
         cur = str(nxt) if nxt < len(self._accounts) else None
-        return ToolPage(rows=rows, next_cursor=cur, truncated=cur is not None)
+        return ToolPage(
+            rows=rows,
+            next_cursor=cur,
+            truncated=cur is not None,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
+        )
 
 
 class CyclingLoader:
@@ -80,6 +105,7 @@ class CyclingLoader:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(a) for a in accounts]
+        self._snapshot_id = "cycling-loader-snapshot"
         self._calls = 0
 
     def load_page(
@@ -91,7 +117,13 @@ class CyclingLoader:
         start = int(cursor or "0") % max(len(self._accounts), 1)
         rows = self._accounts[start : start + page_size]
         nxt = (start + len(rows)) % max(len(self._accounts), 1)
-        return ToolPage(rows=rows, next_cursor=str(nxt), truncated=True)
+        return ToolPage(
+            rows=rows,
+            next_cursor=str(nxt),
+            truncated=True,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
+        )
 
 
 class SilentlyShortLoader:
@@ -105,6 +137,7 @@ class SilentlyShortLoader:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(a) for a in accounts]
+        self._snapshot_id = "silently-short-loader-snapshot"
 
     def load_page(
         self, *, cursor: str | None = None, page_size: int = 25
@@ -113,9 +146,21 @@ class SilentlyShortLoader:
         rows = self._accounts[start : start + page_size]
         nxt = start + len(rows)
         if nxt >= self.STOP_AFTER:
-            return ToolPage(rows=rows, next_cursor=None, truncated=False)
+            return ToolPage(
+                rows=rows,
+                next_cursor=None,
+                truncated=False,
+                snapshot_id=self._snapshot_id,
+                total_row_count=len(self._accounts),
+            )
         cur = str(nxt) if nxt < len(self._accounts) else None
-        return ToolPage(rows=rows, next_cursor=cur, truncated=cur is not None)
+        return ToolPage(
+            rows=rows,
+            next_cursor=cur,
+            truncated=cur is not None,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
+        )
 
 
 class TruncatedWithoutCursorLoader:
@@ -123,6 +168,7 @@ class TruncatedWithoutCursorLoader:
 
     def __init__(self, accounts: list[dict[str, Any]]) -> None:
         self._accounts = [dict(a) for a in accounts]
+        self._snapshot_id = "truncated-without-cursor-snapshot"
         self._calls = 0
 
     def load_page(
@@ -135,8 +181,20 @@ class TruncatedWithoutCursorLoader:
         rows = self._accounts[start : start + page_size]
         nxt = start + len(rows)
         if nxt < len(self._accounts):
-            return ToolPage(rows=rows, next_cursor=None, truncated=True)
-        return ToolPage(rows=rows, next_cursor=None, truncated=False)
+            return ToolPage(
+                rows=rows,
+                next_cursor=None,
+                truncated=True,
+                snapshot_id=self._snapshot_id,
+                total_row_count=len(self._accounts),
+            )
+        return ToolPage(
+            rows=rows,
+            next_cursor=None,
+            truncated=False,
+            snapshot_id=self._snapshot_id,
+            total_row_count=len(self._accounts),
+        )
 
 
 class ReorderingLoader:
@@ -164,7 +222,13 @@ class ReorderingLoader:
         rows = view[start : start + page_size]
         nxt = start + len(rows)
         cur = str(nxt) if nxt < len(view) else None
-        return ToolPage(rows=rows, next_cursor=cur, truncated=cur is not None)
+        return ToolPage(
+            rows=rows,
+            next_cursor=cur,
+            truncated=cur is not None,
+            snapshot_id=f"reordering-loader-view-{shift}",
+            total_row_count=len(self._accounts),
+        )
 
 
 ALL_SOURCES = (

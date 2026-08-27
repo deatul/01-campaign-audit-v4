@@ -4,10 +4,17 @@ import json
 import unittest
 from pathlib import Path
 
-from repair_lab import PaginationError, TargetAccountTool, build_campaign_plan
+from repair_lab import (
+    PaginationError,
+    TargetAccountTool,
+    ToolPage,
+    build_campaign_plan,
+)
 from sources import (
     CyclingLoader,
+    ReorderingLoader,
     ReplayingLoader,
+    SilentlyShortLoader,
     StallingLoader,
     TruncatedWithoutCursorLoader,
 )
@@ -130,6 +137,67 @@ class CampaignPaginationTest(unittest.TestCase):
                     self.build(loader_class(self.accounts))
                 self.assertEqual(raised.exception.code, code)
                 self.assertLess(len(raised.exception.pages), 20)
+
+    def test_incomplete_and_unstable_sources_are_rejected(self) -> None:
+        cases = (
+            (SilentlyShortLoader, "incomplete_source"),
+            (ReorderingLoader, "snapshot_changed"),
+        )
+        for loader_class, code in cases:
+            with self.subTest(loader=loader_class.__name__):
+                with self.assertRaises(PaginationError) as raised:
+                    self.build(loader_class(self.accounts))
+                self.assertEqual(raised.exception.code, code)
+
+    def test_source_must_supply_snapshot_and_total(self) -> None:
+        class LoaderWithoutEvidence:
+            def load_page(
+                self, *, cursor: str | None = None, page_size: int = 25
+            ) -> ToolPage:
+                return ToolPage(rows=[], next_cursor=None, truncated=False)
+
+        with self.assertRaises(PaginationError) as raised:
+            self.build(LoaderWithoutEvidence())
+        self.assertEqual(raised.exception.code, "missing_snapshot")
+
+    def test_plan_uses_request_configuration_and_records_completion_evidence(
+        self,
+    ) -> None:
+        accounts = [
+            {
+                "company_id": "company-a",
+                "company_name": "Company A",
+                "saved_brand_kit_id": "stale-brand-kit",
+                "saved_template_id": "stale-template",
+            }
+        ]
+
+        plan = self.build(TargetAccountTool(accounts))
+
+        self.assertTrue(plan["complete"])
+        self.assertEqual(
+            {item["brand_kit_id"] for item in plan["deliverables"]},
+            {self.brand_kit_id},
+        )
+        self.assertEqual(
+            {item["template_id"] for item in plan["deliverables"]},
+            {self.template_id},
+        )
+        self.assertEqual(
+            plan["source_evidence"]["expected_row_count"], 1
+        )
+        self.assertEqual(
+            plan["source_evidence"]["observed_row_count"], 1
+        )
+        self.assertEqual(
+            plan["completion_evidence"],
+            {
+                "canonical_company_count": 1,
+                "expected_deliverable_count": 4,
+                "observed_deliverable_count": 4,
+                "validated": True,
+            },
+        )
 
 
 if __name__ == "__main__":

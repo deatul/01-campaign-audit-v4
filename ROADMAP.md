@@ -104,31 +104,31 @@ A plan is complete only when all of the following can be demonstrated:
 
 ### 4. Define what the loader must guarantee
 
-- [ ] Extend the loader/page contract with enough evidence to prove a complete,
+- [x] Extend the loader/page contract with enough evidence to prove a complete,
       stable scan—for example a snapshot token plus a reliable total count, or a
       server-issued traversal/version identifier.
-- [ ] Compare the collected accepted-row count with independent source evidence
+- [x] Compare the collected accepted-row count with independent source evidence
       before declaring success; positional `source_row_id` uniqueness follows from
       the assignment rule and is not evidence that no source rows were missed.
-- [ ] Accept exact replayed pages only when their contents match the earlier page
+- [x] Accept exact replayed pages only when their contents match the earlier page
       and traversal can still make progress.
-- [ ] Refuse stalled, cycling, truncated-without-cursor, and silently short
+- [x] Refuse stalled, cycling, truncated-without-cursor, and silently short
       traversals when completeness cannot be proved.
-- [ ] Refuse offset pagination over a changing ordering unless the service
+- [x] Refuse offset pagination over a changing ordering unless the service
       supplies snapshot consistency or a stable unique sort key. Client-side
       deduplication alone cannot recover rows that were never returned.
 
 ### 5. Generate the campaign from the canonical set
 
-- [ ] Generate deliverables only after collection and identity resolution finish
+- [x] Generate deliverables only after collection and identity resolution finish
       successfully; do not publish partial output from an incomplete scan.
-- [ ] Include the skipped-row report in the plan result so a campaign may be
+- [x] Include the skipped-row report in the plan result so a campaign may be
       complete for all retained valid companies without concealing invalid or
       duplicate input rows.
-- [ ] Create one campaign group per canonical company and exactly one record per
+- [x] Create one campaign group per canonical company and exactly one record per
       required asset type.
-- [ ] Apply the current request's `brand_kit_id` and `template_id` uniformly.
+- [x] Apply the current request's `brand_kit_id` and `template_id` uniformly.
       Do not allow stale saved account settings to override the explicit request.
-- [ ] Retain source-row provenance on every deliverable.
-- [ ] Set `complete=True` only after the independent coverage check passes;
+- [x] Retain source-row provenance on every deliverable.
+- [x] Set `complete=True` only after the independent coverage check passes;
       otherwise return a structured failure and no publishable plan.
