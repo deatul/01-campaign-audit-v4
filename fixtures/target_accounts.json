@@ -1,0 +1,1581 @@
+[
+  {
+    "id": "row-1001",
+    "company_id": "company-junction-foods",
+    "company_name": "Junction Foods",
+    "domain": "junction-foods.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1002",
+    "company_id": "company-junction-fitness",
+    "company_name": "Junction Fitness",
+    "domain": "junction-fitness.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1003",
+    "company_id": "company-harbor-analytics",
+    "company_name": "Harbor Analytics",
+    "domain": "harbor-analytics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1004",
+    "company_id": "company-bright-freight",
+    "company_name": "Bright Freight",
+    "domain": "bright-freight.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1005",
+    "company_id": "company-copperline-logistics",
+    "company_name": "Copperline Logistics",
+    "domain": "copperline-logistics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1006",
+    "company_id": "company-marrow-capital",
+    "company_name": "Marrow Capital",
+    "domain": "marrow-capital.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1007",
+    "company_id": "company-ironwood-supply",
+    "company_name": "Ironwood Supply",
+    "domain": "ironwood-supply.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1008",
+    "company_id": "company-tessellate-robotics",
+    "company_name": "Tessellate Robotics",
+    "domain": "tessellate-robotics.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1009",
+    "company_id": "company-pinnacle-supply",
+    "company_name": "Pinnacle Supply",
+    "domain": "pinnacle-supply.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1010",
+    "company_id": "company-foundry-supply",
+    "company_name": "Foundry Supply",
+    "domain": "foundry-supply.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1011",
+    "company_id": "company-copperline-analytics",
+    "company_name": "Copperline Analytics",
+    "domain": "copperline-analytics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1012",
+    "company_id": "company-kestrel-fitness",
+    "company_name": "Kestrel Fitness",
+    "domain": "kestrel-fitness.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-2401",
+    "company_id": null,
+    "company_name": "Halverson Freight",
+    "domain": "halverson-freight.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1013",
+    "company_id": "company-vantage-systems",
+    "company_name": "Vantage Systems",
+    "domain": "vantage-systems.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1014",
+    "company_id": "company-kestrel-supply",
+    "company_name": "Kestrel Supply",
+    "domain": "kestrel-supply.example",
+    "segment": "healthcare",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1015",
+    "company_id": "company-kestrel-health",
+    "company_name": "Kestrel Health",
+    "domain": "kestrel-health.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1016",
+    "company_id": "company-quarry-supply",
+    "company_name": "Quarry Supply",
+    "domain": "quarry-supply.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1017",
+    "company_id": "company-alder-health",
+    "company_name": "Alder Health",
+    "domain": "alder-health.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1201",
+    "company_id": "company-alder-health",
+    "company_name": "ALDER HEALTH",
+    "domain": "alder-health.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1018",
+    "company_id": "company-ironwood-capital",
+    "company_name": "Ironwood Capital",
+    "domain": "ironwood-capital.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1019",
+    "company_id": "company-bluepeak-foods",
+    "company_name": "Bluepeak Foods",
+    "domain": "bluepeak-foods.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1020",
+    "company_id": "company-northwind-energy",
+    "company_name": "Northwind Energy",
+    "domain": "northwind-energy.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1213",
+    "company_id": "company-northwind-energy-emea",
+    "company_name": "Northwind Energy EMEA",
+    "domain": "northwind-energy.example",
+    "segment": "construction",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1021",
+    "company_id": "company-bluepeak-labs",
+    "company_name": "Bluepeak Labs",
+    "domain": "bluepeak-labs.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1022",
+    "company_id": "company-quarry-materials",
+    "company_name": "Quarry Materials",
+    "domain": "quarry-materials.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1023",
+    "company_id": "company-harbor-labs",
+    "company_name": "Harbor Labs",
+    "domain": "harbor-labs.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1024",
+    "company_id": "company-pinnacle-networks",
+    "company_name": "Pinnacle Networks",
+    "domain": "pinnacle-networks.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1025",
+    "company_id": "company-cedar-robotics",
+    "company_name": "Cedar Robotics",
+    "domain": "cedar-robotics.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1026",
+    "company_id": "company-copperline-networks",
+    "company_name": "Copperline Networks",
+    "domain": "copperline-networks.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1027",
+    "company_id": "company-pinnacle-health",
+    "company_name": "Pinnacle Health",
+    "domain": "pinnacle-health.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1028",
+    "company_id": "company-lattice-works",
+    "company_name": "Lattice Works",
+    "domain": "lattice-works.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1029",
+    "company_id": "company-ironwood-partners",
+    "company_name": "Ironwood Partners",
+    "domain": "ironwood-partners.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1202",
+    "company_id": "company-ironwood-partners",
+    "company_name": "Ironwood Partners Inc",
+    "domain": "ironwood-partners.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1030",
+    "company_id": "company-meridian-robotics",
+    "company_name": "Meridian Robotics",
+    "domain": "meridian-robotics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1031",
+    "company_id": "company-foundry-dynamics",
+    "company_name": "Foundry Dynamics",
+    "domain": "foundry-dynamics.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1032",
+    "company_id": "company-halcyon-materials",
+    "company_name": "Halcyon Materials",
+    "domain": "halcyon-materials.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1033",
+    "company_id": "company-halcyon-partners",
+    "company_name": "Halcyon Partners",
+    "domain": "halcyon-partners.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-2402",
+    "company_id": null,
+    "company_name": "Pell & Sons Ironworks",
+    "domain": "pellsons.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1034",
+    "company_id": "company-tessellate-analytics",
+    "company_name": "Tessellate Analytics",
+    "domain": "tessellate-analytics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1035",
+    "company_id": "company-bluepeak-energy",
+    "company_name": "Bluepeak Energy",
+    "domain": "bluepeak-energy.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1036",
+    "company_id": "company-ironwood-dynamics",
+    "company_name": "Ironwood Dynamics",
+    "domain": "ironwood-dynamics.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1037",
+    "company_id": "company-lattice-networks",
+    "company_name": "Lattice Networks",
+    "domain": "lattice-networks.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1038",
+    "company_id": "company-alder-energy",
+    "company_name": "Alder Energy",
+    "domain": "alder-energy.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1039",
+    "company_id": "company-lattice-robotics",
+    "company_name": "Lattice Robotics",
+    "domain": "lattice-robotics.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1040",
+    "company_id": "company-sable-partners",
+    "company_name": "Sable Partners",
+    "domain": "sable-partners.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1041",
+    "company_id": "company-lattice-analytics",
+    "company_name": "Lattice Analytics",
+    "domain": "lattice-analytics.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1042",
+    "company_id": "company-vantage-capital",
+    "company_name": "Vantage Capital",
+    "domain": "vantage-capital.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1203",
+    "company_id": "company-vantage-capital",
+    "company_name": "Vantage Capital Inc",
+    "domain": "vantage-capital.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1043",
+    "company_id": "company-alder-logistics",
+    "company_name": "Alder Logistics",
+    "domain": "alder-logistics.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1044",
+    "company_id": "company-bright-dynamics",
+    "company_name": "Bright Dynamics",
+    "domain": "bright-dynamics.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1045",
+    "company_id": "company-alder-labs",
+    "company_name": "Alder Labs",
+    "domain": "alder-labs.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1046",
+    "company_id": "company-northwind-supply",
+    "company_name": "Northwind Supply",
+    "domain": "northwind-supply.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1047",
+    "company_id": "company-sable-fitness",
+    "company_name": "Sable Fitness",
+    "domain": "sable-fitness.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1214",
+    "company_id": "company-sable-fitness-emea",
+    "company_name": "Sable Fitness EMEA",
+    "domain": "sable-fitness.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1048",
+    "company_id": "company-copperline-materials",
+    "company_name": "Copperline Materials",
+    "domain": "copperline-materials.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1049",
+    "company_id": "company-sable-foods",
+    "company_name": "Sable Foods",
+    "domain": "sable-foods.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1050",
+    "company_id": "company-marrow-robotics",
+    "company_name": "Marrow Robotics",
+    "domain": "marrow-robotics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1051",
+    "company_id": "company-tessellate-group",
+    "company_name": "Tessellate Group",
+    "domain": "tessellate-group.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1052",
+    "company_id": "company-meridian-dynamics",
+    "company_name": "Meridian Dynamics",
+    "domain": "meridian-dynamics.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1053",
+    "company_id": "company-quarry-works",
+    "company_name": "Quarry Works",
+    "domain": "quarry-works.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1054",
+    "company_id": "company-harbor-networks",
+    "company_name": "Harbor Networks",
+    "domain": "harbor-networks.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-2403",
+    "company_id": null,
+    "company_name": "Cobalt Ridge Dental",
+    "domain": "cobaltridge.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1055",
+    "company_id": "company-alder-media",
+    "company_name": "Alder Media",
+    "domain": "alder-media.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1056",
+    "company_id": "company-quarry-energy",
+    "company_name": "Quarry Energy",
+    "domain": "quarry-energy.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1057",
+    "company_id": "company-quarry-networks",
+    "company_name": "Quarry Networks",
+    "domain": "quarry-networks.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1058",
+    "company_id": "company-bluepeak-dynamics",
+    "company_name": "Bluepeak Dynamics",
+    "domain": "bluepeak-dynamics.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1059",
+    "company_id": "company-ironwood-health",
+    "company_name": "Ironwood Health",
+    "domain": "ironwood-health.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1060",
+    "company_id": "company-kestrel-analytics",
+    "company_name": "Kestrel Analytics",
+    "domain": "kestrel-analytics.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1061",
+    "company_id": "company-vantage-materials",
+    "company_name": "Vantage Materials",
+    "domain": "vantage-materials.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1062",
+    "company_id": "company-bright-energy",
+    "company_name": "Bright Energy",
+    "domain": "bright-energy.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1063",
+    "company_id": "company-junction-energy",
+    "company_name": "Junction Energy",
+    "domain": "junction-energy.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1064",
+    "company_id": "company-halcyon-labs",
+    "company_name": "Halcyon Labs",
+    "domain": "halcyon-labs.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1065",
+    "company_id": "company-marrow-supply",
+    "company_name": "Marrow Supply",
+    "domain": "marrow-supply.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1066",
+    "company_id": "company-kestrel-robotics",
+    "company_name": "Kestrel Robotics",
+    "domain": "kestrel-robotics.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1216",
+    "company_id": "company-kestrel-robotics",
+    "company_name": "Kestrel Robotics",
+    "domain": "kestrel-group.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1067",
+    "company_id": "company-cedar-systems",
+    "company_name": "Cedar Systems",
+    "domain": "cedar-systems.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1068",
+    "company_id": "company-tessellate-partners",
+    "company_name": "Tessellate Partners",
+    "domain": "tessellate-partners.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1069",
+    "company_id": "company-sable-interactive",
+    "company_name": "Sable Interactive",
+    "domain": "sable-interactive.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1070",
+    "company_id": "company-bluepeak-analytics",
+    "company_name": "Bluepeak Analytics",
+    "domain": "bluepeak-analytics.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1071",
+    "company_id": "company-marrow-interactive",
+    "company_name": "Marrow Interactive",
+    "domain": "marrow-interactive.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1072",
+    "company_id": "company-bright-media",
+    "company_name": "Bright Media",
+    "domain": "bright-media.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1073",
+    "company_id": "company-lattice-energy",
+    "company_name": "Lattice Energy",
+    "domain": "lattice-energy.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1074",
+    "company_id": "company-alder-fitness",
+    "company_name": "Alder Fitness",
+    "domain": "alder-fitness.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1075",
+    "company_id": "company-copperline-fitness",
+    "company_name": "Copperline Fitness",
+    "domain": "copperline-fitness.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1076",
+    "company_id": "company-tessellate-capital",
+    "company_name": "Tessellate Capital",
+    "domain": "tessellate-capital.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1215",
+    "company_id": "company-tessellate-capital-emea",
+    "company_name": "Tessellate Capital EMEA",
+    "domain": "tessellate-capital.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1077",
+    "company_id": "company-marrow-group",
+    "company_name": "Marrow Group",
+    "domain": "marrow-group.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1078",
+    "company_id": "company-cedar-foods",
+    "company_name": "Cedar Foods",
+    "domain": "cedar-foods.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1079",
+    "company_id": "company-cedar-media",
+    "company_name": "Cedar Media",
+    "domain": "cedar-media.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1080",
+    "company_id": "company-quarry-systems",
+    "company_name": "Quarry Systems",
+    "domain": "quarry-systems.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1081",
+    "company_id": "company-bluepeak-systems",
+    "company_name": "Bluepeak Systems",
+    "domain": "bluepeak-systems.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1082",
+    "company_id": "company-halcyon-group",
+    "company_name": "Halcyon Group",
+    "domain": "halcyon-group.example",
+    "segment": "fitness",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1083",
+    "company_id": "company-pinnacle-interactive",
+    "company_name": "Pinnacle Interactive",
+    "domain": "pinnacle-interactive.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1084",
+    "company_id": "company-marrow-media",
+    "company_name": "Marrow Media",
+    "domain": "marrow-media.example",
+    "segment": "manufacturing",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1085",
+    "company_id": "company-ironwood-freight",
+    "company_name": "Ironwood Freight",
+    "domain": "ironwood-freight.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1086",
+    "company_id": "company-tessellate-health",
+    "company_name": "Tessellate Health",
+    "domain": "tessellate-health.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1087",
+    "company_id": "company-meridian-partners",
+    "company_name": "Meridian Partners",
+    "domain": "meridian-partners.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1088",
+    "company_id": "company-foundry-foods",
+    "company_name": "Foundry Foods",
+    "domain": "foundry-foods.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-2404",
+    "company_id": null,
+    "company_name": "Northgate Tutoring",
+    "domain": "northgate-tutoring.example",
+    "segment": "education"
+  },
+  {
+    "id": "row-1089",
+    "company_id": "company-northwind-materials",
+    "company_name": "Northwind Materials",
+    "domain": "northwind-materials.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1090",
+    "company_id": "company-cedar-interactive",
+    "company_name": "Cedar Interactive",
+    "domain": "cedar-interactive.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1091",
+    "company_id": "company-alder-materials",
+    "company_name": "Alder Materials",
+    "domain": "alder-materials.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1092",
+    "company_id": "company-sable-works",
+    "company_name": "Sable Works",
+    "domain": "sable-works.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1204",
+    "company_id": "company-sable-works",
+    "company_name": "SABLE WORKS",
+    "domain": "sable-works.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1205",
+    "company_id": "company-sable-works",
+    "company_name": "SABLE WORKS Inc",
+    "domain": "sable-works.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1093",
+    "company_id": "company-copperline-group",
+    "company_name": "Copperline Group",
+    "domain": "copperline-group.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1206",
+    "company_id": "company-copperline-group",
+    "company_name": "Copperline Group Inc",
+    "domain": "copperline-group.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1094",
+    "company_id": "company-vantage-energy",
+    "company_name": "Vantage Energy",
+    "domain": "vantage-energy.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1095",
+    "company_id": "company-bright-foods",
+    "company_name": "Bright Foods",
+    "domain": "bright-foods.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1207",
+    "company_id": "company-bright-foods",
+    "company_name": "BRIGHT FOODS",
+    "domain": "bright-foods.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1096",
+    "company_id": "company-cedar-health",
+    "company_name": "Cedar Health",
+    "domain": "cedar-health.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1097",
+    "company_id": "company-kestrel-dynamics",
+    "company_name": "Kestrel Dynamics",
+    "domain": "kestrel-dynamics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1098",
+    "company_id": "company-alder-capital",
+    "company_name": "Alder Capital",
+    "domain": "alder-capital.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1099",
+    "company_id": "company-halcyon-works",
+    "company_name": "Halcyon Works",
+    "domain": "halcyon-works.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1100",
+    "company_id": "company-copperline-energy",
+    "company_name": "Copperline Energy",
+    "domain": "copperline-energy.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1217",
+    "company_id": "company-copperline-energy",
+    "company_name": "Copperline Energy",
+    "domain": "copperline-group.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1101",
+    "company_id": "company-foundry-labs",
+    "company_name": "Foundry Labs",
+    "domain": "foundry-labs.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1102",
+    "company_id": "company-pinnacle-freight",
+    "company_name": "Pinnacle Freight",
+    "domain": "pinnacle-freight.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1103",
+    "company_id": "company-lattice-media",
+    "company_name": "Lattice Media",
+    "domain": "lattice-media.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1104",
+    "company_id": "company-northwind-interactive",
+    "company_name": "Northwind Interactive",
+    "domain": "northwind-interactive.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1105",
+    "company_id": "company-harbor-logistics",
+    "company_name": "Harbor Logistics",
+    "domain": "harbor-logistics.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1106",
+    "company_id": "company-copperline-systems",
+    "company_name": "Copperline Systems",
+    "domain": "copperline-systems.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1107",
+    "company_id": "company-harbor-group",
+    "company_name": "Harbor Group",
+    "domain": "harbor-group.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1108",
+    "company_id": "company-vantage-partners",
+    "company_name": "Vantage Partners",
+    "domain": "vantage-partners.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1109",
+    "company_id": "company-vantage-works",
+    "company_name": "Vantage Works",
+    "domain": "vantage-works.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1110",
+    "company_id": "company-pinnacle-foods",
+    "company_name": "Pinnacle Foods",
+    "domain": "pinnacle-foods.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1111",
+    "company_id": "company-vantage-supply",
+    "company_name": "Vantage Supply",
+    "domain": "vantage-supply.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1112",
+    "company_id": "company-sable-media",
+    "company_name": "Sable Media",
+    "domain": "sable-media.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1113",
+    "company_id": "company-pinnacle-group",
+    "company_name": "Pinnacle Group",
+    "domain": "pinnacle-group.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1114",
+    "company_id": "company-alder-systems",
+    "company_name": "Alder Systems",
+    "domain": "alder-systems.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1115",
+    "company_id": "company-foundry-group",
+    "company_name": "Foundry Group",
+    "domain": "foundry-group.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1116",
+    "company_id": "company-meridian-systems",
+    "company_name": "Meridian Systems",
+    "domain": "meridian-systems.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1117",
+    "company_id": "company-ironwood-logistics",
+    "company_name": "Ironwood Logistics",
+    "domain": "ironwood-logistics.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1118",
+    "company_id": "company-kestrel-energy",
+    "company_name": "Kestrel Energy",
+    "domain": "kestrel-energy.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1119",
+    "company_id": "company-tessellate-media",
+    "company_name": "Tessellate Media",
+    "domain": "tessellate-media.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1120",
+    "company_id": "company-marrow-works",
+    "company_name": "Marrow Works",
+    "domain": "marrow-works.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1121",
+    "company_id": "company-tessellate-logistics",
+    "company_name": "Tessellate Logistics",
+    "domain": "tessellate-logistics.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1122",
+    "company_id": "company-meridian-interactive",
+    "company_name": "Meridian Interactive",
+    "domain": "meridian-interactive.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1123",
+    "company_id": "company-foundry-partners",
+    "company_name": "Foundry Partners",
+    "domain": "foundry-partners.example",
+    "segment": "fitness",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1124",
+    "company_id": "company-marrow-freight",
+    "company_name": "Marrow Freight",
+    "domain": "marrow-freight.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1125",
+    "company_id": "company-tessellate-systems",
+    "company_name": "Tessellate Systems",
+    "domain": "tessellate-systems.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1126",
+    "company_id": "company-foundry-systems",
+    "company_name": "Foundry Systems",
+    "domain": "foundry-systems.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1127",
+    "company_id": "company-vantage-networks",
+    "company_name": "Vantage Networks",
+    "domain": "vantage-networks.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1128",
+    "company_id": "company-northwind-health",
+    "company_name": "Northwind Health",
+    "domain": "northwind-health.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1129",
+    "company_id": "company-halcyon-freight",
+    "company_name": "Halcyon Freight",
+    "domain": "halcyon-freight.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1130",
+    "company_id": "company-pinnacle-works",
+    "company_name": "Pinnacle Works",
+    "domain": "pinnacle-works.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1131",
+    "company_id": "company-quarry-interactive",
+    "company_name": "Quarry Interactive",
+    "domain": "quarry-interactive.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1132",
+    "company_id": "company-harbor-energy",
+    "company_name": "Harbor Energy",
+    "domain": "harbor-energy.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1133",
+    "company_id": "company-marrow-energy",
+    "company_name": "Marrow Energy",
+    "domain": "marrow-energy.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-2405",
+    "company_id": null,
+    "company_name": "Riverbend Cold Storage",
+    "domain": "riverbend-cold.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1134",
+    "company_id": "company-copperline-foods",
+    "company_name": "Copperline Foods",
+    "domain": "copperline-foods.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1135",
+    "company_id": "company-meridian-media",
+    "company_name": "Meridian Media",
+    "domain": "meridian-media.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1136",
+    "company_id": "company-quarry-logistics",
+    "company_name": "Quarry Logistics",
+    "domain": "quarry-logistics.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1137",
+    "company_id": "company-kestrel-materials",
+    "company_name": "Kestrel Materials",
+    "domain": "kestrel-materials.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1138",
+    "company_id": "company-quarry-labs",
+    "company_name": "Quarry Labs",
+    "domain": "quarry-labs.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1139",
+    "company_id": "company-ironwood-foods",
+    "company_name": "Ironwood Foods",
+    "domain": "ironwood-foods.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1140",
+    "company_id": "company-cedar-partners",
+    "company_name": "Cedar Partners",
+    "domain": "cedar-partners.example",
+    "segment": "financial services",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1141",
+    "company_id": "company-ironwood-group",
+    "company_name": "Ironwood Group",
+    "domain": "ironwood-group.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1142",
+    "company_id": "company-cedar-networks",
+    "company_name": "Cedar Networks",
+    "domain": "cedar-networks.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1143",
+    "company_id": "company-quarry-media",
+    "company_name": "Quarry Media",
+    "domain": "quarry-media.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1144",
+    "company_id": "company-meridian-energy",
+    "company_name": "Meridian Energy",
+    "domain": "meridian-energy.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1145",
+    "company_id": "company-foundry-health",
+    "company_name": "Foundry Health",
+    "domain": "foundry-health.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1146",
+    "company_id": "company-cedar-analytics",
+    "company_name": "Cedar Analytics",
+    "domain": "cedar-analytics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1147",
+    "company_id": "company-junction-labs",
+    "company_name": "Junction Labs",
+    "domain": "junction-labs.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1148",
+    "company_id": "company-harbor-freight",
+    "company_name": "Harbor Freight",
+    "domain": "harbor-freight.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1149",
+    "company_id": "company-kestrel-systems",
+    "company_name": "Kestrel Systems",
+    "domain": "kestrel-systems.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1150",
+    "company_id": "company-bluepeak-media",
+    "company_name": "Bluepeak Media",
+    "domain": "bluepeak-media.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1151",
+    "company_id": "company-kestrel-foods",
+    "company_name": "Kestrel Foods",
+    "domain": "kestrel-foods.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1152",
+    "company_id": "company-bluepeak-interactive",
+    "company_name": "Bluepeak Interactive",
+    "domain": "bluepeak-interactive.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1153",
+    "company_id": "company-sable-logistics",
+    "company_name": "Sable Logistics",
+    "domain": "sable-logistics.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1154",
+    "company_id": "company-pinnacle-media",
+    "company_name": "Pinnacle Media",
+    "domain": "pinnacle-media.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1155",
+    "company_id": "company-bluepeak-supply",
+    "company_name": "Bluepeak Supply",
+    "domain": "bluepeak-supply.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1156",
+    "company_id": "company-meridian-logistics",
+    "company_name": "Meridian Logistics",
+    "domain": "meridian-logistics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1157",
+    "company_id": "company-quarry-freight",
+    "company_name": "Quarry Freight",
+    "domain": "quarry-freight.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1158",
+    "company_id": "company-lattice-health",
+    "company_name": "Lattice Health",
+    "domain": "lattice-health.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1159",
+    "company_id": "company-halcyon-analytics",
+    "company_name": "Halcyon Analytics",
+    "domain": "halcyon-analytics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1160",
+    "company_id": "company-harbor-dynamics",
+    "company_name": "Harbor Dynamics",
+    "domain": "harbor-dynamics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1161",
+    "company_id": "company-bright-robotics",
+    "company_name": "Bright Robotics",
+    "domain": "bright-robotics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1162",
+    "company_id": "company-foundry-capital",
+    "company_name": "Foundry Capital",
+    "domain": "foundry-capital.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1163",
+    "company_id": "company-pinnacle-systems",
+    "company_name": "Pinnacle Systems",
+    "domain": "pinnacle-systems.example",
+    "segment": "energy",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1164",
+    "company_id": "company-lattice-capital",
+    "company_name": "Lattice Capital",
+    "domain": "lattice-capital.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1165",
+    "company_id": "company-halcyon-capital",
+    "company_name": "Halcyon Capital",
+    "domain": "halcyon-capital.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1166",
+    "company_id": "company-cedar-energy",
+    "company_name": "Cedar Energy",
+    "domain": "cedar-energy.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1167",
+    "company_id": "company-tessellate-energy",
+    "company_name": "Tessellate Energy",
+    "domain": "tessellate-energy.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1168",
+    "company_id": "company-foundry-freight",
+    "company_name": "Foundry Freight",
+    "domain": "foundry-freight.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1169",
+    "company_id": "company-quarry-group",
+    "company_name": "Quarry Group",
+    "domain": "quarry-group.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1170",
+    "company_id": "company-northwind-partners",
+    "company_name": "Northwind Partners",
+    "domain": "northwind-partners.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1171",
+    "company_id": "company-harbor-media",
+    "company_name": "Harbor Media",
+    "domain": "harbor-media.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1172",
+    "company_id": "company-alder-group",
+    "company_name": "Alder Group",
+    "domain": "alder-group.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1173",
+    "company_id": "company-alder-foods",
+    "company_name": "Alder Foods",
+    "domain": "alder-foods.example",
+    "segment": "financial services"
+  },
+  {
+    "id": "row-1174",
+    "company_id": "company-cedar-materials",
+    "company_name": "Cedar Materials",
+    "domain": "cedar-materials.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1175",
+    "company_id": "company-bright-systems",
+    "company_name": "Bright Systems",
+    "domain": "bright-systems.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1176",
+    "company_id": "company-cedar-labs",
+    "company_name": "Cedar Labs",
+    "domain": "cedar-labs.example",
+    "segment": "fitness",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1177",
+    "company_id": "company-bright-materials",
+    "company_name": "Bright Materials",
+    "domain": "bright-materials.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1178",
+    "company_id": "company-halcyon-networks",
+    "company_name": "Halcyon Networks",
+    "domain": "halcyon-networks.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1179",
+    "company_id": "company-harbor-works",
+    "company_name": "Harbor Works",
+    "domain": "harbor-works.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1180",
+    "company_id": "company-vantage-labs",
+    "company_name": "Vantage Labs",
+    "domain": "vantage-labs.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1181",
+    "company_id": "company-alder-networks",
+    "company_name": "Alder Networks",
+    "domain": "alder-networks.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1182",
+    "company_id": "company-alder-partners",
+    "company_name": "Alder Partners",
+    "domain": "alder-partners.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1183",
+    "company_id": "company-quarry-analytics",
+    "company_name": "Quarry Analytics",
+    "domain": "quarry-analytics.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1184",
+    "company_id": "company-copperline-dynamics",
+    "company_name": "Copperline Dynamics",
+    "domain": "copperline-dynamics.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1185",
+    "company_id": "company-northwind-networks",
+    "company_name": "Northwind Networks",
+    "domain": "northwind-networks.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-2406",
+    "company_id": null,
+    "company_name": "Aster Point Realty",
+    "domain": "asterpoint.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "row-1186",
+    "company_id": "company-quarry-robotics",
+    "company_name": "Quarry Robotics",
+    "domain": "quarry-robotics.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1187",
+    "company_id": "company-meridian-foods",
+    "company_name": "Meridian Foods",
+    "domain": "meridian-foods.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1188",
+    "company_id": "company-tessellate-foods",
+    "company_name": "Tessellate Foods",
+    "domain": "tessellate-foods.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1189",
+    "company_id": "company-sable-networks",
+    "company_name": "Sable Networks",
+    "domain": "sable-networks.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1190",
+    "company_id": "company-halcyon-foods",
+    "company_name": "Halcyon Foods",
+    "domain": "halcyon-foods.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "row-1191",
+    "company_id": "company-lattice-supply",
+    "company_name": "Lattice Supply",
+    "domain": "lattice-supply.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1192",
+    "company_id": "company-kestrel-labs",
+    "company_name": "Kestrel Labs",
+    "domain": "kestrel-labs.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1193",
+    "company_id": "company-bright-interactive",
+    "company_name": "Bright Interactive",
+    "domain": "bright-interactive.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1194",
+    "company_id": "company-meridian-group",
+    "company_name": "Meridian Group",
+    "domain": "meridian-group.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "row-1195",
+    "company_id": "company-sable-dynamics",
+    "company_name": "Sable Dynamics",
+    "domain": "sable-dynamics.example",
+    "segment": "financial services",
+    "saved_brand_kit_id": "brand-kit-2019-legacy",
+    "saved_template_id": "template-legacy-blast"
+  },
+  {
+    "id": "row-1196",
+    "company_id": "company-lattice-partners",
+    "company_name": "Lattice Partners",
+    "domain": "lattice-partners.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1197",
+    "company_id": "company-cedar-fitness",
+    "company_name": "Cedar Fitness",
+    "domain": "cedar-fitness.example",
+    "segment": "retail"
+  },
+  {
+    "id": "row-1198",
+    "company_id": "company-meridian-materials",
+    "company_name": "Meridian Materials",
+    "domain": "meridian-materials.example",
+    "segment": "fitness"
+  },
+  {
+    "id": "row-1199",
+    "company_id": "company-meridian-analytics",
+    "company_name": "Meridian Analytics",
+    "domain": "meridian-analytics.example",
+    "segment": "energy"
+  },
+  {
+    "id": "row-1200",
+    "company_id": "company-northwind-capital",
+    "company_name": "Northwind Capital",
+    "domain": "northwind-capital.example",
+    "segment": "transportation"
+  },
+  {
+    "id": "row-1208",
+    "company_id": "company-kestrel-dynamics",
+    "company_name": "Kestrel Dynamics Inc",
+    "domain": "kestrel-dynamics.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1209",
+    "company_id": "company-harbor-group",
+    "company_name": "Harbor Group Inc",
+    "domain": "harbor-group.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "row-1210",
+    "company_id": "company-ironwood-logistics",
+    "company_name": "IRONWOOD LOGISTICS",
+    "domain": "ironwood-logistics.example",
+    "segment": "construction"
+  },
+  {
+    "id": "row-1211",
+    "company_id": "company-vantage-networks",
+    "company_name": "Vantage Networks Inc",
+    "domain": "vantage-networks.example",
+    "segment": "software"
+  },
+  {
+    "id": "row-1212",
+    "company_id": "company-tessellate-energy",
+    "company_name": "Tessellate Energy Inc",
+    "domain": "tessellate-energy.example",
+    "segment": "logistics"
+  }
+]

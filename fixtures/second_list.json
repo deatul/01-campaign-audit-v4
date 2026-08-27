@@ -1,0 +1,807 @@
+[
+  {
+    "id": "srow-1001",
+    "company_id": "company-kestrel",
+    "company_name": "Kestrel",
+    "domain": "kestrel.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1002",
+    "company_id": "company-ambit",
+    "company_name": "Ambit",
+    "domain": "ambit.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1003",
+    "company_id": "company-foxglove",
+    "company_name": "Foxglove",
+    "domain": "foxglove.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1004",
+    "company_id": "company-windrow",
+    "company_name": "Windrow",
+    "domain": "windrow.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1005",
+    "company_id": "company-windrow",
+    "company_name": "Windrow Inc",
+    "domain": "windrow.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1006",
+    "company_id": "company-talbot",
+    "company_name": "Talbot",
+    "domain": "talbot.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1007",
+    "company_id": "company-marlin",
+    "company_name": "Marlin",
+    "domain": "marlin.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1008",
+    "company_id": "company-ostrea",
+    "company_name": "Ostrea",
+    "domain": "ostrea.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1009",
+    "company_id": "company-pinnacle",
+    "company_name": "Pinnacle",
+    "domain": "pinnacle.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1010",
+    "company_id": "company-quill",
+    "company_name": "Quill",
+    "domain": "quill.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1011",
+    "company_id": "company-redshank",
+    "company_name": "Redshank",
+    "domain": "redshank.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1012",
+    "company_id": "company-sable",
+    "company_name": "Sable",
+    "domain": "sable.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1013",
+    "company_id": "company-sable",
+    "company_name": "Sable Inc",
+    "domain": "sable.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1014",
+    "company_id": "company-thistle",
+    "company_name": "Thistle",
+    "domain": "thistle.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1015",
+    "company_id": "company-umber",
+    "company_name": "Umber",
+    "domain": "umber.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1016",
+    "company_id": "company-vantage",
+    "company_name": "Vantage",
+    "domain": "vantage.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1017",
+    "company_id": "company-wrenfield",
+    "company_name": "Wrenfield",
+    "domain": "wrenfield.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1018",
+    "company_id": "company-yarrow",
+    "company_name": "Yarrow",
+    "domain": "yarrow.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1019",
+    "company_id": "company-zephyr",
+    "company_name": "Zephyr",
+    "domain": "zephyr.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1020",
+    "company_id": "company-bramble",
+    "company_name": "Bramble",
+    "domain": "bramble.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1021",
+    "company_id": "company-bramble",
+    "company_name": "Bramble Inc",
+    "domain": "bramble.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1022",
+    "company_id": "company-cinder",
+    "company_name": "Cinder",
+    "domain": "cinder.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1023",
+    "company_id": "company-dovetail",
+    "company_name": "Dovetail",
+    "domain": "dovetail.example",
+    "segment": "media"
+  },
+  {
+    "company_id": "company-straddle-works",
+    "company_name": "Straddle Works",
+    "domain": "straddle.example",
+    "segment": "manufacturing",
+    "id": "srow-1111"
+  },
+  {
+    "company_id": "company-straddle-works",
+    "company_name": "Straddle Works",
+    "domain": "straddle.example",
+    "segment": "manufacturing",
+    "id": "srow-1112"
+  },
+  {
+    "id": "srow-1024",
+    "company_id": "company-elder",
+    "company_name": "Elder",
+    "domain": "elder.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1025",
+    "company_id": "company-fennel",
+    "company_name": "Fennel",
+    "domain": "fennel.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1026",
+    "company_id": "company-garnet",
+    "company_name": "Garnet",
+    "domain": "garnet.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1027",
+    "company_id": "company-hollow",
+    "company_name": "Hollow",
+    "domain": "hollow.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1028",
+    "company_id": "company-kestrel2",
+    "company_name": "Kestrel 2",
+    "domain": "kestrel2.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1029",
+    "company_id": "company-kestrel2",
+    "company_name": "Kestrel 2 Inc",
+    "domain": "kestrel2.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1030",
+    "company_id": "company-ambit2",
+    "company_name": "Ambit 2",
+    "domain": "ambit2.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1031",
+    "company_id": "company-foxglove2",
+    "company_name": "Foxglove 2",
+    "domain": "foxglove2.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1032",
+    "company_id": "company-windrow2",
+    "company_name": "Windrow 2",
+    "domain": "windrow2.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1033",
+    "company_id": "company-talbot2",
+    "company_name": "Talbot 2",
+    "domain": "talbot2.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1034",
+    "company_id": "company-marlin2",
+    "company_name": "Marlin 2",
+    "domain": "marlin2.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1035",
+    "company_id": "company-ostrea2",
+    "company_name": "Ostrea 2",
+    "domain": "ostrea2.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1036",
+    "company_id": "company-pinnacle2",
+    "company_name": "Pinnacle 2",
+    "domain": "pinnacle2.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1037",
+    "company_id": "company-pinnacle2",
+    "company_name": "Pinnacle 2 Inc",
+    "domain": "pinnacle2.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1038",
+    "company_id": "company-quill2",
+    "company_name": "Quill 2",
+    "domain": "quill2.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1039",
+    "company_id": "company-redshank2",
+    "company_name": "Redshank 2",
+    "domain": "redshank2.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1040",
+    "company_id": "company-sable2",
+    "company_name": "Sable 2",
+    "domain": "sable2.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1041",
+    "company_id": "company-thistle2",
+    "company_name": "Thistle 2",
+    "domain": "thistle2.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1042",
+    "company_id": "company-umber2",
+    "company_name": "Umber 2",
+    "domain": "umber2.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1043",
+    "company_id": "company-vantage2",
+    "company_name": "Vantage 2",
+    "domain": "vantage2.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1044",
+    "company_id": "company-wrenfield2",
+    "company_name": "Wrenfield 2",
+    "domain": "wrenfield2.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1045",
+    "company_id": "company-wrenfield2",
+    "company_name": "Wrenfield 2 Inc",
+    "domain": "wrenfield2.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1046",
+    "company_id": "company-yarrow2",
+    "company_name": "Yarrow 2",
+    "domain": "yarrow2.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1047",
+    "company_id": "company-zephyr2",
+    "company_name": "Zephyr 2",
+    "domain": "zephyr2.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1048",
+    "company_id": "company-bramble2",
+    "company_name": "Bramble 2",
+    "domain": "bramble2.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1049",
+    "company_id": "company-cinder2",
+    "company_name": "Cinder 2",
+    "domain": "cinder2.example",
+    "segment": "healthcare"
+  },
+  {
+    "company_id": "company-straddle-works",
+    "company_name": "Straddle Works",
+    "domain": "straddle.example",
+    "segment": "manufacturing",
+    "id": "srow-1113"
+  },
+  {
+    "id": "srow-1050",
+    "company_id": "company-dovetail2",
+    "company_name": "Dovetail 2",
+    "domain": "dovetail2.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1051",
+    "company_id": "company-elder2",
+    "company_name": "Elder 2",
+    "domain": "elder2.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1052",
+    "company_id": "company-fennel2",
+    "company_name": "Fennel 2",
+    "domain": "fennel2.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1053",
+    "company_id": "company-fennel2",
+    "company_name": "Fennel 2 Inc",
+    "domain": "fennel2.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1054",
+    "company_id": "company-garnet2",
+    "company_name": "Garnet 2",
+    "domain": "garnet2.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1055",
+    "company_id": "company-hollow2",
+    "company_name": "Hollow 2",
+    "domain": "hollow2.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1056",
+    "company_id": "company-kestrel3",
+    "company_name": "Kestrel 3",
+    "domain": "kestrel3.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1057",
+    "company_id": "company-ambit3",
+    "company_name": "Ambit 3",
+    "domain": "ambit3.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1058",
+    "company_id": "company-foxglove3",
+    "company_name": "Foxglove 3",
+    "domain": "foxglove3.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1059",
+    "company_id": "company-windrow3",
+    "company_name": "Windrow 3",
+    "domain": "windrow3.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1060",
+    "company_id": "company-talbot3",
+    "company_name": "Talbot 3",
+    "domain": "talbot3.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1061",
+    "company_id": "company-talbot3",
+    "company_name": "Talbot 3 Inc",
+    "domain": "talbot3.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1062",
+    "company_id": "company-marlin3",
+    "company_name": "Marlin 3",
+    "domain": "marlin3.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1063",
+    "company_id": "company-ostrea3",
+    "company_name": "Ostrea 3",
+    "domain": "ostrea3.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1064",
+    "company_id": "company-pinnacle3",
+    "company_name": "Pinnacle 3",
+    "domain": "pinnacle3.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1065",
+    "company_id": "company-quill3",
+    "company_name": "Quill 3",
+    "domain": "quill3.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1066",
+    "company_id": "company-redshank3",
+    "company_name": "Redshank 3",
+    "domain": "redshank3.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1067",
+    "company_id": "company-sable3",
+    "company_name": "Sable 3",
+    "domain": "sable3.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1114",
+    "company_id": "",
+    "company_name": "Unresolved Import A",
+    "domain": "unresolved-a.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1068",
+    "company_id": "company-thistle3",
+    "company_name": "Thistle 3",
+    "domain": "thistle3.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1069",
+    "company_id": "company-thistle3",
+    "company_name": "Thistle 3 Inc",
+    "domain": "thistle3.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1070",
+    "company_id": "company-umber3",
+    "company_name": "Umber 3",
+    "domain": "umber3.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1071",
+    "company_id": "company-vantage3",
+    "company_name": "Vantage 3",
+    "domain": "vantage3.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1072",
+    "company_id": "company-wrenfield3",
+    "company_name": "Wrenfield 3",
+    "domain": "wrenfield3.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1073",
+    "company_id": "company-yarrow3",
+    "company_name": "Yarrow 3",
+    "domain": "yarrow3.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1074",
+    "company_id": "company-zephyr3",
+    "company_name": "Zephyr 3",
+    "domain": "zephyr3.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1075",
+    "company_id": "company-bramble3",
+    "company_name": "Bramble 3",
+    "domain": "bramble3.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1076",
+    "company_id": "company-cinder3",
+    "company_name": "Cinder 3",
+    "domain": "cinder3.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1077",
+    "company_id": "company-cinder3",
+    "company_name": "Cinder 3 Inc",
+    "domain": "cinder3.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1078",
+    "company_id": "company-dovetail3",
+    "company_name": "Dovetail 3",
+    "domain": "dovetail3.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1079",
+    "company_id": "company-elder3",
+    "company_name": "Elder 3",
+    "domain": "elder3.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1080",
+    "company_id": "company-fennel3",
+    "company_name": "Fennel 3",
+    "domain": "fennel3.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1081",
+    "company_id": "company-garnet3",
+    "company_name": "Garnet 3",
+    "domain": "garnet3.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1082",
+    "company_id": "company-hollow3",
+    "company_name": "Hollow 3",
+    "domain": "hollow3.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1083",
+    "company_id": "company-kestrel4",
+    "company_name": "Kestrel 4",
+    "domain": "kestrel4.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1084",
+    "company_id": "company-ambit4",
+    "company_name": "Ambit 4",
+    "domain": "ambit4.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1115",
+    "company_id": "",
+    "company_name": "Unresolved Import B",
+    "domain": "unresolved-b.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1085",
+    "company_id": "company-ambit4",
+    "company_name": "Ambit 4 Inc",
+    "domain": "ambit4.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1086",
+    "company_id": "company-foxglove4",
+    "company_name": "Foxglove 4",
+    "domain": "foxglove4.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1087",
+    "company_id": "company-windrow4",
+    "company_name": "Windrow 4",
+    "domain": "windrow4.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1088",
+    "company_id": "company-talbot4",
+    "company_name": "Talbot 4",
+    "domain": "talbot4.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1089",
+    "company_id": "company-marlin4",
+    "company_name": "Marlin 4",
+    "domain": "marlin4.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1090",
+    "company_id": "company-ostrea4",
+    "company_name": "Ostrea 4",
+    "domain": "ostrea4.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1091",
+    "company_id": "company-pinnacle4",
+    "company_name": "Pinnacle 4",
+    "domain": "pinnacle4.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1092",
+    "company_id": "company-quill4",
+    "company_name": "Quill 4",
+    "domain": "quill4.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1093",
+    "company_id": "company-quill4",
+    "company_name": "Quill 4 Inc",
+    "domain": "quill4.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1094",
+    "company_id": "company-redshank4",
+    "company_name": "Redshank 4",
+    "domain": "redshank4.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1095",
+    "company_id": "company-sable4",
+    "company_name": "Sable 4",
+    "domain": "sable4.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1096",
+    "company_id": "company-thistle4",
+    "company_name": "Thistle 4",
+    "domain": "thistle4.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1097",
+    "company_id": "company-umber4",
+    "company_name": "Umber 4",
+    "domain": "umber4.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1098",
+    "company_id": "company-vantage4",
+    "company_name": "Vantage 4",
+    "domain": "vantage4.example",
+    "segment": "education"
+  },
+  {
+    "id": "srow-1099",
+    "company_id": "company-wrenfield4",
+    "company_name": "Wrenfield 4",
+    "domain": "wrenfield4.example",
+    "segment": "hospitality"
+  },
+  {
+    "id": "srow-1100",
+    "company_id": "company-yarrow4",
+    "company_name": "Yarrow 4",
+    "domain": "yarrow4.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1101",
+    "company_id": "company-yarrow4",
+    "company_name": "Yarrow 4 Inc",
+    "domain": "yarrow4.example",
+    "segment": "real_estate"
+  },
+  {
+    "id": "srow-1102",
+    "company_id": "company-zephyr4",
+    "company_name": "Zephyr 4",
+    "domain": "zephyr4.example",
+    "segment": "energy"
+  },
+  {
+    "id": "srow-1103",
+    "company_id": "company-bramble4",
+    "company_name": "Bramble 4",
+    "domain": "bramble4.example",
+    "segment": "media"
+  },
+  {
+    "id": "srow-1104",
+    "company_id": "company-cinder4",
+    "company_name": "Cinder 4",
+    "domain": "cinder4.example",
+    "segment": "fintech"
+  },
+  {
+    "id": "srow-1105",
+    "company_id": "company-dovetail4",
+    "company_name": "Dovetail 4",
+    "domain": "dovetail4.example",
+    "segment": "logistics"
+  },
+  {
+    "id": "srow-1106",
+    "company_id": "company-elder4",
+    "company_name": "Elder 4",
+    "domain": "elder4.example",
+    "segment": "healthcare"
+  },
+  {
+    "id": "srow-1107",
+    "company_id": "company-fennel4",
+    "company_name": "Fennel 4",
+    "domain": "fennel4.example",
+    "segment": "retail"
+  },
+  {
+    "id": "srow-1108",
+    "company_id": "company-garnet4",
+    "company_name": "Garnet 4",
+    "domain": "garnet4.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1109",
+    "company_id": "company-garnet4",
+    "company_name": "Garnet 4 Inc",
+    "domain": "garnet4.example",
+    "segment": "manufacturing"
+  },
+  {
+    "id": "srow-1110",
+    "company_id": "company-hollow4",
+    "company_name": "Hollow 4",
+    "domain": "hollow4.example",
+    "segment": "education"
+  }
+]

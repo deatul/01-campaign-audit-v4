@@ -1,0 +1,11 @@
+{
+  "prompt": "Create one personalized landing page and three LinkedIn ads for every company in the uploaded list. Use the selected Brand Kit and campaign template.",
+  "brand_kit": {
+    "id": "brand-kit-meridian-2026",
+    "name": "Meridian 2026"
+  },
+  "template": {
+    "id": "template-abm-q3",
+    "name": "Q3 ABM template"
+  }
+}
