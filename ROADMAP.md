@@ -132,3 +132,52 @@ A plan is complete only when all of the following can be demonstrated:
 - [x] Retain source-row provenance on every deliverable.
 - [x] Set `complete=True` only after the independent coverage check passes;
       otherwise return a structured failure and no publishable plan.
+
+### 6. Replace the self-referential coverage check
+
+- [ ] Derive the expected canonical company set from independently collected
+      source records, not from `plan.source_row_ids`.
+- [ ] Compare exact sets and report missing, unexpected, and duplicated companies
+      separately.
+- [ ] Compare deliverables as a multiset keyed by `(company_id, asset_type)` so
+      duplicate assets cannot disappear inside a Python `set`.
+- [ ] Require exactly one of every required asset type per company.
+- [ ] Validate source-row traceability, company identity, brand kit, template,
+      and the completion evidence.
+- [ ] Verify that every source row is represented either by a valid canonical
+      company/provenance entry or by exactly one skipped-row diagnostic, including
+      a distinct duplicate classification.
+- [ ] Return structured diagnostics suitable for the demo and audit reports.
+
+### 7. Add regression and property-oriented tests
+
+- [ ] Add tests for every loader in `src/sources.py`, classifying each as safely
+      recoverable or necessarily rejected.
+- [ ] Assert that normal pagination yields the same canonical companies and
+      deliverables for page sizes 1, 10, 25, 100, and sizes larger than the list.
+- [ ] Assert that exact page replay does not duplicate source rows, companies, or
+      deliverables.
+- [ ] Assert prompt failure for stalled cursors, cycles, and missing cursors.
+- [ ] Assert refusal for silent truncation and unstable reordering unless the
+      enhanced loader contract supplies trustworthy completeness evidence.
+- [ ] Test duplicate companies split across page boundaries, positional
+      `source_row_id` assignment, null/missing/blank company IDs, conflicting
+      records sharing a company ID, empty lists, and a final short page. Duplicate
+      company rows must retain the first row, report and skip later rows, and
+      produce only one company's assets.
+      Each invalid company ID case must skip only the affected row, identify its
+      source row and reason, and leave valid rows eligible for a complete campaign.
+- [ ] Mutate a valid plan by removing or duplicating companies/assets and by
+      changing brand/template IDs; every mutation must fail coverage.
+- [ ] Run the same checks against `fixtures/second_list.json` to demonstrate that
+      the solution generalizes beyond the reported fixture.
+
+### 8. Update reporting and operational behavior
+
+- [ ] Keep `make demo`, `make test`, `make verify`, and `make audit` working.
+- [ ] Make demo/audit output distinguish `complete`, `rejected`, and `failed`
+      rather than presenting every returned dictionary as a completed campaign.
+- [ ] Report counts for source rows, canonical companies, duplicate rows merged,
+      rejected identities, and generated deliverables.
+- [ ] Document which historical paging shapes are handled and which are refused,
+      including why refusal is the only honest outcome.
