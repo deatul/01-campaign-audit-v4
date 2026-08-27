@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
 from dataclasses import dataclass
 from typing import Any, Protocol
 
@@ -415,6 +416,10 @@ def build_campaign_plan(
     }
 
     return {
+        "request": {
+            "brand_kit_id": brand_kit_id,
+            "template_id": template_id,
+        },
         "source_row_ids": [row.source_row_id for row in rows],
         "deliverables": deliverables,
         "skipped_rows": skipped_rows,
@@ -428,20 +433,168 @@ def build_campaign_plan(
 def evaluate_campaign_coverage(
     plan: dict[str, Any],
     accounts: list[dict[str, Any]],
-) -> tuple[bool, str]:
-    """The currently deployed check. The customer disputes its result."""
-    observed_rows = {str(value) for value in plan.get("source_row_ids", [])}
-    deliverables = plan.get("deliverables", [])
+) -> tuple[bool, dict[str, Any]]:
+    """Compare a plan exactly with expectations derived from source accounts."""
 
-    for row_id in sorted(observed_rows):
-        observed_types = {
-            str(item.get("asset_type"))
-            for item in deliverables
-            if str(item.get("source_row_id")) == row_id
+    def result(code: str, message: str, **facts: Any) -> tuple[bool, dict[str, Any]]:
+        passed = code == "complete"
+        return passed, {"code": code, "message": message, **facts}
+
+    expected_input = [
+        CollectedRow(str(index), dict(account))
+        for index, account in enumerate(accounts)
+    ]
+    expected_rows, expected_skipped = resolve_account_identity(expected_input)
+    request = plan.get("request")
+    if not isinstance(request, dict):
+        return result("missing_request", "plan has no request configuration")
+    brand_kit_id = request.get("brand_kit_id")
+    template_id = request.get("template_id")
+    if not isinstance(brand_kit_id, str) or not isinstance(template_id, str):
+        return result(
+            "invalid_request",
+            "plan request must contain string brand_kit_id and template_id",
+        )
+
+    expected_source_ids = [row.source_row_id for row in expected_rows]
+    observed_source_ids = [str(value) for value in plan.get("source_row_ids", [])]
+    expected_source_counter = Counter(expected_source_ids)
+    observed_source_counter = Counter(observed_source_ids)
+    if observed_source_counter != expected_source_counter:
+        missing = list((expected_source_counter - observed_source_counter).elements())
+        unexpected = list((observed_source_counter - expected_source_counter).elements())
+        duplicated = sorted(
+            row_id
+            for row_id, count in observed_source_counter.items()
+            if count > expected_source_counter.get(row_id, 0)
+        )
+        return result(
+            "source_row_mismatch",
+            "plan source rows do not exactly match canonical source rows",
+            missing_source_row_ids=missing,
+            unexpected_source_row_ids=unexpected,
+            duplicated_source_row_ids=duplicated,
+        )
+
+    if plan.get("skipped_rows") != expected_skipped:
+        return result(
+            "skipped_row_mismatch",
+            "plan does not account for invalid and duplicate source rows exactly",
+            expected_skipped_rows=expected_skipped,
+            observed_skipped_rows=plan.get("skipped_rows"),
+        )
+
+    deliverables = plan.get("deliverables")
+    if not isinstance(deliverables, list):
+        return result("invalid_deliverables", "plan deliverables must be a list")
+
+    expected_companies = {str(row.value["company_id"]) for row in expected_rows}
+    observed_companies = {str(item.get("company_id")) for item in deliverables}
+    missing_companies = sorted(expected_companies - observed_companies)
+    unexpected_companies = sorted(observed_companies - expected_companies)
+    if missing_companies or unexpected_companies:
+        return result(
+            "company_mismatch",
+            "plan companies do not exactly match canonical companies",
+            missing_company_ids=missing_companies,
+            unexpected_company_ids=unexpected_companies,
+        )
+
+    asset_keys = [
+        (str(item.get("company_id")), str(item.get("asset_type")))
+        for item in deliverables
+    ]
+    duplicate_assets = sorted(
+        {key for key, count in Counter(asset_keys).items() if count > 1}
+    )
+    if duplicate_assets:
+        return result(
+            "duplicate_deliverables",
+            "plan contains duplicate company assets",
+            duplicate_company_assets=duplicate_assets,
+        )
+
+    wrong_configuration = [
+        {
+            "company_id": item.get("company_id"),
+            "asset_type": item.get("asset_type"),
         }
-        if observed_types != set(REQUIRED_ASSET_TYPES):
-            return False, f"source row {row_id} has the wrong asset set"
+        for item in deliverables
+        if item.get("brand_kit_id") != brand_kit_id
+        or item.get("template_id") != template_id
+    ]
+    if wrong_configuration:
+        return result(
+            "request_configuration_mismatch",
+            "deliverables do not use the campaign request configuration",
+            mismatched_deliverable_count=len(wrong_configuration),
+        )
 
+    expected_deliverables = _make_deliverables(
+        expected_rows,
+        brand_kit_id=brand_kit_id,
+        template_id=template_id,
+    )
+
+    def deliverable_key(item: dict[str, Any]) -> tuple[str, ...]:
+        return (
+            str(item.get("source_row_id")),
+            str(item.get("company_id")),
+            str(item.get("company_name")),
+            str(item.get("asset_type")),
+            str(item.get("brand_kit_id")),
+            str(item.get("template_id")),
+        )
+
+    expected_counter = Counter(map(deliverable_key, expected_deliverables))
+    observed_counter = Counter(map(deliverable_key, deliverables))
+    if observed_counter != expected_counter:
+        missing_count = sum((expected_counter - observed_counter).values())
+        unexpected_count = sum((observed_counter - expected_counter).values())
+        return result(
+            "deliverable_mismatch",
+            "plan deliverables do not exactly match expected company assets",
+            missing_deliverable_count=missing_count,
+            unexpected_deliverable_count=unexpected_count,
+        )
+
+    expected_source_evidence = {
+        "expected_row_count": len(accounts),
+        "observed_row_count": len(accounts),
+    }
+    source_evidence = plan.get("source_evidence")
+    if not isinstance(source_evidence, dict) or any(
+        source_evidence.get(key) != value
+        for key, value in expected_source_evidence.items()
+    ):
+        return result(
+            "source_evidence_mismatch",
+            "plan source-completeness evidence does not match the input",
+            expected=expected_source_evidence,
+            observed=source_evidence,
+        )
+
+    expected_completion_evidence = {
+        "canonical_company_count": len(expected_rows),
+        "expected_deliverable_count": len(expected_deliverables),
+        "observed_deliverable_count": len(deliverables),
+        "validated": True,
+    }
+    if plan.get("completion_evidence") != expected_completion_evidence:
+        return result(
+            "completion_evidence_mismatch",
+            "plan completion evidence does not match observed coverage",
+            expected=expected_completion_evidence,
+            observed=plan.get("completion_evidence"),
+        )
     if plan.get("complete") is not True:
-        return False, "campaign did not declare completion"
-    return True, f"all {len(observed_rows)} campaigned rows have the requested asset types"
+        return result("not_complete", "campaign did not declare completion")
+
+    return result(
+        "complete",
+        "every canonical company has exactly the requested assets",
+        source_row_count=len(accounts),
+        canonical_company_count=len(expected_rows),
+        skipped_row_count=len(expected_skipped),
+        deliverable_count=len(deliverables),
+    )

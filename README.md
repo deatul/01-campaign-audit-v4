@@ -33,3 +33,25 @@ you can look at behaviour instead of reasoning about it.
 - `audit.py` — what `make audit` runs.
 - `DECISIONS.md`, `SUBMISSION.md` — fill these in before you send the packet
   back.
+
+## Paging behavior
+
+Campaigns are published only after a finite traversal of one immutable source
+snapshot returns exactly its declared raw-row total. Normal pagination and exact
+replayed pages are handled; replayed content is accepted only once.
+
+The planner refuses these historical paging shapes because it cannot prove a
+complete stable input:
+
+- `StallingLoader`: its cursor stops advancing.
+- `CyclingLoader`: its cursor returns to an earlier page.
+- `SilentlyShortLoader`: it terminates before its declared row total.
+- `TruncatedWithoutCursorLoader`: it claims more rows exist but supplies no
+  continuation cursor.
+- `ReorderingLoader`: its snapshot changes between offset pages, so rows may be
+  skipped or repeated even when the final count looks plausible.
+
+Rows with missing or blank `company_id` are reported and skipped. For repeated
+`company_id` values, the first row is retained and later rows are reported as
+duplicates. A complete campaign contains exactly four requested assets for each
+retained company, using the request's brand kit and template.

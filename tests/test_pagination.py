@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import unittest
+from copy import deepcopy
 from pathlib import Path
 
 from repair_lab import (
@@ -9,6 +10,7 @@ from repair_lab import (
     TargetAccountTool,
     ToolPage,
     build_campaign_plan,
+    evaluate_campaign_coverage,
 )
 from sources import (
     CyclingLoader,
@@ -198,6 +200,114 @@ class CampaignPaginationTest(unittest.TestCase):
                 "validated": True,
             },
         )
+
+    def test_coverage_rejects_every_customer_visible_plan_mutation(self) -> None:
+        plan = self.build(TargetAccountTool(self.accounts))
+        passed, detail = evaluate_campaign_coverage(plan, self.accounts)
+        self.assertTrue(passed, detail)
+        self.assertEqual(detail["code"], "complete")
+
+        first_company = plan["deliverables"][0]["company_id"]
+        last_company = plan["deliverables"][-1]["company_id"]
+        mutations: list[tuple[str, dict, str]] = []
+
+        missing_company = deepcopy(plan)
+        missing_company["deliverables"] = [
+            item
+            for item in missing_company["deliverables"]
+            if item["company_id"] != first_company
+        ]
+        mutations.append(("missing company", missing_company, "company_mismatch"))
+
+        duplicated_company = deepcopy(plan)
+        duplicated_company["deliverables"] += [
+            deepcopy(item)
+            for item in plan["deliverables"]
+            if item["company_id"] == first_company
+        ]
+        mutations.append(
+            ("duplicated company", duplicated_company, "duplicate_deliverables")
+        )
+
+        wrong_brand = deepcopy(plan)
+        for item in wrong_brand["deliverables"]:
+            item["brand_kit_id"] = "wrong-brand"
+        mutations.append(
+            ("wrong brand", wrong_brand, "request_configuration_mismatch")
+        )
+
+        wrong_template = deepcopy(plan)
+        for item in wrong_template["deliverables"]:
+            item["template_id"] = "wrong-template"
+        mutations.append(
+            ("wrong template", wrong_template, "request_configuration_mismatch")
+        )
+
+        missing_asset = deepcopy(plan)
+        for index, item in enumerate(missing_asset["deliverables"]):
+            if item["company_id"] == last_company:
+                missing_asset["deliverables"].pop(index)
+                break
+        mutations.append(
+            ("missing asset", missing_asset, "deliverable_mismatch")
+        )
+
+        for label, variant, expected_code in mutations:
+            with self.subTest(mutation=label):
+                passed, detail = evaluate_campaign_coverage(variant, self.accounts)
+                self.assertFalse(passed)
+                self.assertEqual(detail["code"], expected_code)
+
+    def test_empty_and_final_short_pages_complete(self) -> None:
+        for accounts, page_size in (([], 25), (self.accounts[:3], 2)):
+            with self.subTest(row_count=len(accounts)):
+                plan = self.build(TargetAccountTool(accounts), page_size=page_size)
+                passed, detail = evaluate_campaign_coverage(plan, accounts)
+                self.assertTrue(passed, detail)
+                self.assertEqual(
+                    plan["source_evidence"]["observed_row_count"], len(accounts)
+                )
+
+    def test_all_invalid_company_id_shapes_are_reported(self) -> None:
+        accounts = [
+            {"company_name": "Missing"},
+            {"company_id": None, "company_name": "Null"},
+            {"company_id": "  ", "company_name": "Blank"},
+            {"company_id": "valid", "company_name": "Valid"},
+        ]
+
+        plan = self.build(TargetAccountTool(accounts), page_size=2)
+
+        self.assertEqual(plan["source_row_ids"], ["3"])
+        self.assertEqual(
+            plan["skipped_rows"],
+            [
+                {"source_row_id": "0", "reason": "missing_company_id"},
+                {"source_row_id": "1", "reason": "missing_company_id"},
+                {"source_row_id": "2", "reason": "missing_company_id"},
+            ],
+        )
+
+    def test_second_list_is_page_size_invariant(self) -> None:
+        accounts = json.loads(Path("fixtures/second_list.json").read_text())
+        plans = {
+            size: self.build(TargetAccountTool(accounts), page_size=size)
+            for size in (1, 10, 25, 100, 500)
+        }
+        expected = [
+            (item["company_id"], item["asset_type"])
+            for item in plans[25]["deliverables"]
+        ]
+        for plan in plans.values():
+            self.assertEqual(
+                [
+                    (item["company_id"], item["asset_type"])
+                    for item in plan["deliverables"]
+                ],
+                expected,
+            )
+            passed, detail = evaluate_campaign_coverage(plan, accounts)
+            self.assertTrue(passed, detail)
 
 
 if __name__ == "__main__":

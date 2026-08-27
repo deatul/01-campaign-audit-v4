@@ -50,7 +50,7 @@ def _timeboxed(work: Callable[[], Any]) -> tuple[str, Any]:
         try:
             box["value"] = work()
         except BaseException as error:  # noqa: BLE001 - reported, not handled
-            box["error"] = f"{type(error).__name__}: {error}"
+            box["error"] = error
 
     thread = threading.Thread(target=target, daemon=True)
     thread.start()
@@ -64,22 +64,28 @@ def _timeboxed(work: Callable[[], Any]) -> tuple[str, Any]:
 
 def _describe(plan: dict[str, Any]) -> dict[str, Any]:
     deliverables = plan.get("deliverables", [])
+    skipped_rows = plan.get("skipped_rows", [])
     return {
-        "rows": len(plan.get("source_row_ids", [])),
+        "raw": plan.get("source_evidence", {}).get("observed_row_count"),
+        "invalid": sum(
+            row.get("reason") == "missing_company_id" for row in skipped_rows
+        ),
+        "duplicates": sum(
+            row.get("reason") == "duplicate_company_id" for row in skipped_rows
+        ),
         "companies": len({str(d.get("company_id")) for d in deliverables}),
         "deliverables": len(deliverables),
-        "complete": plan.get("complete"),
     }
 
 
 def paging_shapes(accounts: list[dict], request: dict) -> None:
-    print("=" * 78)
+    print("=" * 100)
     print("A. every paging shape in src/sources.py")
-    print("=" * 78)
+    print("=" * 100)
     print()
     print(
-        f"{'shape':30}{'outcome':10}{'rows':>7}{'companies':>11}"
-        f"{'deliverables':>14}{'complete':>10}"
+        f"{'shape':30}{'status':11}{'raw':>7}{'invalid':>9}"
+        f"{'duplicate':>11}{'companies':>11}{'assets':>9}"
     )
 
     loaders: list[tuple[str, Any]] = [("TargetAccountTool", TargetAccountTool)]
@@ -94,13 +100,19 @@ def paging_shapes(accounts: list[dict], request: dict) -> None:
             )
         )
         if outcome != "returned":
-            print(f"{name:30}{outcome:10}{str(value)[:44]}")
+            if isinstance(value, repair_lab.PaginationError):
+                status = "rejected"
+                reason = f"{value.code}: {value}"
+            else:
+                status = "failed"
+                reason = f"{type(value).__name__}: {value}"
+            print(f"{name:30}{status:11}{reason[:58]}")
             continue
         facts = _describe(value)
         print(
-            f"{name:30}{'returned':10}{facts['rows']:>7}"
-            f"{facts['companies']:>11}{facts['deliverables']:>14}"
-            f"{str(facts['complete']):>10}"
+            f"{name:30}{'complete':11}{facts['raw']:>7}"
+            f"{facts['invalid']:>9}{facts['duplicates']:>11}"
+            f"{facts['companies']:>11}{facts['deliverables']:>9}"
         )
 
     print()
